@@ -1,12 +1,13 @@
-# Prime_Recursive
-> Finds the Prime number of all numbers less than the num, in a C++ using *Sieve of Eratosthenes algorithm, i.e Non-Recursive method as well as recursive Method.
+# Palindrome
+> A palindrome is a word, phrase, or other sequences of characters that reads the same backward as forward, such as **madam**, **racecar**, or the number **10801**.
+
 
 ## Installation
 
 You can copy this using this command:
 
 ```bash
-git clone https://github.com/rksingh23/Prime_Recursive.git
+git clone https://github.com/rksingh23/Palindrome.git
 ```
 
 ### Run main:

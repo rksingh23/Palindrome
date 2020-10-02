@@ -2,65 +2,59 @@
 #include <iostream>
 #include <bits/stdc++.h>
 
-
-std::vector<int> Solution::Prime_SieveOfEratosthenes(int &num) 
+void CPPLib::permute(std::string str, std::string out, std::vector<std::string> &strvec) 
 { 
-  std::vector<int> result;
-  std::vector<bool> visited(num+1,false); //Creates a boolean array visited, having size (o to n), all initialized as false.
+    // When size of str becomes 0, out has a 
+    // permutation (length of out is n) 
+    if (str.size() == 0) 
+    { 
+        strvec.push_back(out);
+        //std::cout << out << std::endl; 
 
-  if (num<=0)
-  {
-      return {-1};
-  }
-  else
-  {
-  for(int i=2;i<=num;i++)
-  {
-    if(!visited[i]) // if any number is not visited, it is a prime number
-    {
-      result.push_back(i); //add them to the result vector
-      for(int j=i+i; j<=num; j+=i)
-      {
-        visited[j]=true; //all the multiples of that number are non prime, hence invalidate them.
-      }
-    }
-  }
-  return result;
-  }
-}
+        return; 
+    } 
+  
+    // One be one move all characters at 
+    // the beginning of out (or result) 
+    for (unsigned int i = 0; i < str.size(); i++) 
+    { 
+        // Remove first character from str and 
+        // add it to out 
+        permute(str.substr(1), out + str[0],strvec); 
+  
+        // Rotate string in a way second character 
+        // moves to the beginning. 
+        rotate(str.begin(), str.begin() + 1, str.end()); 
+    } 
+} 
 
-
-
-
-std::vector<int> Solution::FindPrimeRecursive(int &num)
+// Function to find all unique palindromic substrings of given string
+bool CPPLib::canBePalindrome(const std::string &str)
 {
-  std::vector<int> result;
-  if (num<=0)
-  {
-      return {-1};
-  }
-  else
-  {
-      for(int i=2;i<=num;i++)
-      {
-        Solution::globalChk = i/2;
-        if(isPrime(i))
-            result.push_back(i);
-      }
-  }
-  return result;
-}
+    if(str.size()==1) return false;
+    std::vector<std::string>strvec{};
+    permute(str, "",strvec); 
 
 
-bool Solution::isPrime(int &num){
-  if(globalChk==1){
-    return 1;
-  }else{
-    if(num%globalChk==0) {
-      return 0;
-    } else {
-      globalChk = globalChk-1;
-      isPrime(num);
-    }
-  }
+    for(auto i: strvec)
+     {
+
+     int n=i.length()-1;
+     std::cout<<"The returned permutation values "<<i<<std::endl;
+     int start=0, end=n;
+     int notpal=0;
+     while(start<end)
+     {
+         if (tolower(i[start])!= tolower(i[end])) notpal++;
+         start++;
+         end--;
+         if((start==end)&&(notpal==0))
+         {
+             std::cout<<i<<std::endl;
+          return true;
+         }
+
+     }
+     }
+     return false;
 }

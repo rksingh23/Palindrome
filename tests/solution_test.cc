@@ -4,94 +4,52 @@
 
 
 
-TEST(FindPrimeTest, HandlesPositiveNumberSeive) {
-  Solution solution;
-
-  int num=5;
-  std::vector<int> vect1{2,3,5};
-  std::vector<int> cmp;
-  for (auto n:solution.Prime_SieveOfEratosthenes(num)){
-    cmp.push_back (n);
-  }
-  ASSERT_EQ(cmp.size(), vect1.size()) << "Vectors x and y are of unequal length";
-  for (unsigned int i = 0; i < vect1.size(); ++i){
-    EXPECT_EQ(cmp[i],vect1[i]);
-  } 
+TEST(Q6_Student, HandlesStraightvalues) {
+  CPPLib s;
+  std::string str="madam";
+  EXPECT_EQ(s.canBePalindrome(str), true);
 }
 
-TEST(FindPrimeTest, HandlesPositiveNumberRecursive) {
-  Solution solution;
-
-  int num=5;
-  std::vector<int> vect1{2,3,5};
-  std::vector<int> cmp;
-  for (auto n:solution.FindPrimeRecursive(num)){
-    cmp.push_back (n);
-  }
-  ASSERT_EQ(cmp.size(), vect1.size()) << "Vectors x and y are of unequal length";
-  for (unsigned int i = 0; i < vect1.size(); ++i){
-    EXPECT_EQ(cmp[i],vect1[i]);
-  } 
+TEST(Q6_Student, HandlesUpperandLowerCase) {
+  CPPLib s;
+  std::string str="MaDam";
+  EXPECT_EQ(s.canBePalindrome(str), true);
 }
 
-
-TEST(FindPrimeTest, HandlesNegativeNumberSeive) {
-  Solution solution;
-
-  int num=-1;
-  std::vector<int> vect1{-1};
-  std::vector<int> cmp;
-  for (auto n:solution.Prime_SieveOfEratosthenes(num)){
-    cmp.push_back (n);
-  }
-  ASSERT_EQ(cmp.size(), vect1.size()) << "Vectors x and y are of unequal length";
-  for (unsigned int i = 0; i < vect1.size(); ++i){
-    EXPECT_EQ(cmp[i],vect1[i]);
-  } 
+TEST(Q6_Student, HandlesPermutations) {
+  CPPLib s;
+  std::string str="AAC";
+  EXPECT_EQ(s.canBePalindrome(str), true);
 }
 
-TEST(FindPrimeTest, HandlesNegativeNumberRecursive) {
-  Solution solution;
-
-  int num=-1;
-  std::vector<int> vect1{-1};
-  std::vector<int> cmp;
-  for (auto n:solution.FindPrimeRecursive(num)){
-    cmp.push_back (n);
-  }
-  ASSERT_EQ(cmp.size(), vect1.size()) << "Vectors x and y are of unequal length";
-  for (unsigned int i = 0; i < vect1.size(); ++i){
-    EXPECT_EQ(cmp[i],vect1[i]);
-  } 
+TEST(Q6_Student, HandlesNumbers) {
+  CPPLib s;
+  std::string str="101";
+  EXPECT_EQ(s.canBePalindrome(str), true);
 }
 
-
-TEST(FindPrimeTest, HandlesZeroSeive) {
-  Solution solution;
-
-  int num=0;
-  std::vector<int> vect1{-1};
-  std::vector<int> cmp;
-  for (auto n:solution.Prime_SieveOfEratosthenes(num)){
-    cmp.push_back (n);
-  }
-  ASSERT_EQ(cmp.size(), vect1.size()) << "Vectors x and y are of unequal length";
-  for (unsigned int i = 0; i < vect1.size(); ++i){
-    EXPECT_EQ(cmp[i],vect1[i]);
-  } 
+TEST(Q6_Student, HandlesNumbersandAlphabets) {
+  CPPLib s;
+  std::string str="101A110";
+  EXPECT_EQ(s.canBePalindrome(str), true);
 }
 
-TEST(FindPrimeTest, HandlesZerorRecursive) {
-  Solution solution;
+TEST(Q6_Student, HandlesPermutationsNumbers) {
+  CPPLib s;
+  std::string str="110";
+  EXPECT_EQ(s.canBePalindrome(str), true);
+}
 
-  int num=0;
-  std::vector<int> vect1{-1};
-  std::vector<int> cmp;
-  for (auto n:solution.FindPrimeRecursive(num)){
-    cmp.push_back (n);
-  }
-  ASSERT_EQ(cmp.size(), vect1.size()) << "Vectors x and y are of unequal length";
-  for (unsigned int i = 0; i < vect1.size(); ++i){
-    EXPECT_EQ(cmp[i],vect1[i]);
-  } 
+//Negative Test
+
+TEST(Q6_Student, FailsforSingleAlphabet) {
+  CPPLib s;
+  std::string str="A";
+  EXPECT_EQ(s.canBePalindrome(str), false);
+}
+
+TEST(Q6_Student, fail) {
+  CPPLib s;
+  std::string str="london";
+  EXPECT_EQ(s.canBePalindrome(str), false);
 }

@@ -4,13 +4,11 @@
 #include <string>
 #include <vector>
 
-class Solution {
+class CPPLib {
 public:
   
-  std::vector<int> FindPrimeRecursive(int &num);
-  std::vector<int> Prime_SieveOfEratosthenes(int &num); 
-  int globalChk;  
-  bool isPrime(int &num); 
+  void permute(std::string str, std::string out, std::vector<std::string> &strvec); 
+  bool canBePalindrome(const std::string &str);
 
 //private:
 };
